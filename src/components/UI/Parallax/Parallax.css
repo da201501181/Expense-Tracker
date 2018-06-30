@@ -1,0 +1,15 @@
+.Parallax {
+    background: url(../../../images/image2.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 700px;
+}
+
+.Caption {
+    color: #000;
+    top: 60%;
+    margin: auto;
+    font-size: 30px;
+    font-family: Verdana;
+    position: relative;
+}

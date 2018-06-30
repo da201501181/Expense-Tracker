@@ -1,0 +1,38 @@
+.Navbar {
+    font-family: 'Lato';
+    background: transperent;
+}
+
+.navbar-custom {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-custom .navbar-brand {
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+}
+
+.navbar-custom .navbar-nav .nav-item .nav-link {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+
+.color-me {
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.shrink {
+    height: 55px;
+    transition: all ease .5s;
+    background: black;
+    opacity: 0.7;
+}
