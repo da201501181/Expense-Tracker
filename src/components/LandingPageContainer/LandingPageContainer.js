@@ -53,10 +53,14 @@ class LandingPageContainer extends Component {
         search: `?idToken=${nextProps.firebaseIdToken}`
       });
     }
+    if (nextProps.authSuccess) {
+      this.props.history.push("/dashboard");
+    }
   }
 
   render() {
     const { showSignInForm, showSignUpForm } = this.state;
+    console.log(this.props);
 
     let Container;
     if (showSignInForm) {
@@ -108,11 +112,12 @@ class LandingPageContainer extends Component {
   }
 }
 const mapStateToProps = ({ LoginReducer }) => {
-  const { sendEmailVerification, firebaseIdToken } = LoginReducer;
+  const { sendEmailVerification, firebaseIdToken, authSuccess } = LoginReducer;
 
   return {
     sendEmailVerification,
-    firebaseIdToken
+    firebaseIdToken,
+    authSuccess
   };
 };
 const mapDispatchToProps = dispatch => {

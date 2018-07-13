@@ -20,7 +20,6 @@ class Modal extends Component {
         <div
           className="Modal animated bounceInDown"
           style={{
-            height: height ? `${height}` : "350px",
             transform: show ? "translateY(0)" : "translateY(-100vh)",
             opacity: show ? "1" : "0"
           }}

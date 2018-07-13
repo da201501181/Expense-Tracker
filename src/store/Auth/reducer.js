@@ -3,7 +3,9 @@ import {
   AUTH_SUCCESS,
   AUTH_FAILURE,
   RESET,
-  SEND_EMAIL_VERIFICATION_SUCCESS
+  SEND_EMAIL_VERIFICATION_SUCCESS,
+  REQUEST_ADD_EXPENSE,
+  SUCCESS_ADD_EXPENSE
 } from "./constants";
 
 // Initial state
@@ -12,7 +14,8 @@ const initialState = {
   error: null,
   authSuccess: false,
   sendEmailVerification: false,
-  firebaseIdToken: null
+  firebaseIdToken: null,
+  userUID: null
 };
 
 // Reducer
@@ -21,7 +24,8 @@ const loginReducer = (state = initialState, action) => {
     case AUTH_REQUEST:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        error: null
       };
     case AUTH_SUCCESS:
       return {
@@ -29,7 +33,7 @@ const loginReducer = (state = initialState, action) => {
         error: null,
         authSuccess: true,
         isLoading: false,
-        firebaseIdToken: action.idToken
+        userUID: action.userUID
       };
     case AUTH_FAILURE:
       return {

@@ -8,8 +8,12 @@ import {
   SEND_EMAIL_VERIFICATION_SUCCESS,
   VERIFY_EMAIL
 } from "./constants";
-import HTTPService from "../../services/HTTPService";
 import axios from "axios";
+
+function setLocalStorage(userUID) {
+  localStorage.setItem("userUID", userUID);
+}
+
 /**
  * Invoked before validating user login
  * @returns {Object} Action
@@ -22,10 +26,11 @@ function authRequest() {
  * Invoked after user is successfully logged in
  * @returns {Object} Action
  */
-function authSuccess(idToken) {
+function authSuccess(userUID) {
+  setLocalStorage(userUID);
   return {
     type: AUTH_SUCCESS,
-    idToken
+    userUID
   };
 }
 
@@ -120,8 +125,13 @@ function checkEmailVerified(idToken) {
       .post(url, requestBodyPayload)
       .then(({ data }) => {
         const emailVerified = data.users[0].emailVerified;
+        const userUID = data.users[0].localId;
+
         if (emailVerified) {
-          dispatch(authSuccess(idToken));
+          dispatch(authSuccess(userUID));
+        } else {
+          console.log("User not verified");
+          dispatch(authFail("User not verified"));
         }
       })
       .catch(err => {

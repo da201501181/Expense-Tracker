@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, combineReducers, compose } from "redux";
 import thunk from "redux-thunk";
 import { createLogger } from "redux-logger";
 import LoginReducer from "./Auth/reducer";
+import expenseReducer from "./Expense/reducer";
 // Enable redux-logger in all environments other than production
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -14,7 +15,7 @@ const middlewareList =
     : composeEnhancers(applyMiddleware(thunk));
 
 // App reducer
-const appReducer = combineReducers({ LoginReducer });
+const appReducer = combineReducers({ LoginReducer, expenseReducer });
 
 /**
  * Root reducer

@@ -1,0 +1,5 @@
+const REQUEST_ADD_EXPENSE = "REQUEST_ADD_EXPENSE";
+const SUCCESS_ADD_EXPENSE = "SUCCESS_ADD_EXPENSE";
+const BASE_DB_URL = "https://expense-tracker-171998.firebaseio.com/";
+
+export { REQUEST_ADD_EXPENSE, SUCCESS_ADD_EXPENSE, BASE_DB_URL };
